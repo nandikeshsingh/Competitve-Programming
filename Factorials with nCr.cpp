@@ -1,6 +1,6 @@
 int fact[N], invfact[N];
 
-int pow(int a, int b, int m)
+int binpow(int a, int b, int m)
 {
 	int ans=1;
 	while(b)
@@ -15,7 +15,7 @@ int pow(int a, int b, int m)
 
 int modinv(int k)
 {
-	return pow(k, MOD-2, MOD);
+	return binpow(k, MOD-2, MOD);
 }
 
 void precompute()
@@ -36,8 +36,7 @@ void precompute()
 
 int nCr(int x, int y)
 {
-	if(y>x)
-		return 0;
+	if(y>x)return 0;
 	int num=fact[x];
 	num*=invfact[y];
 	num%=MOD;
