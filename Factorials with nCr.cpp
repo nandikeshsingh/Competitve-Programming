@@ -36,7 +36,7 @@ void precompute()
 
 int nCr(int x, int y)
 {
-	if(y>x || x<0 || y<0)return 0;
+	if(y>x || x<=0 || y<0)return 0;
 	int num=fact[x];
 	num*=invfact[y];
 	num%=MOD;
