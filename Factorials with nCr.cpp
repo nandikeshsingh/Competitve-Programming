@@ -7,7 +7,7 @@ int binpow(int a, int b, int m)
 	{
 		if(b&1)
 			ans=(ans*a)%m;
-		b/=2;
+		b>>=1;
 		a=(a*a)%m;
 	}
 	return ans;
