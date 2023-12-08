@@ -19,9 +19,9 @@ struct Trie {
         }
     }
  
-    long long get(const string& s) {
+    int get(const string& s) {
         int x = 0;
-        long long res = 0;
+        int res = 0;
         for (int i = 0; i < s.size(); i++) {
             int c = s[i] - 'a';
  
