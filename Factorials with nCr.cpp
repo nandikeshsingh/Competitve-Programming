@@ -15,7 +15,7 @@ int binpow(int a, int b, int m)
 
 int modinv(int k)
 {
-	return binpow(k, MOD-2, MOD);
+	return binpow(k, mod-2, mod);
 }
 
 void precompute()
@@ -24,13 +24,13 @@ void precompute()
 	for(int i=2;i<N;i++)
 	{
 		fact[i]=fact[i-1]*i;
-		fact[i]%=MOD;
+		fact[i]%=mod;
 	}
 	invfact[N-1]=modinv(fact[N-1]);
 	for(int i=N-2;i>=0;i--)
 	{
 		invfact[i]=invfact[i+1]*(i+1);
-		invfact[i]%=MOD;
+		invfact[i]%=mod;
 	}
 }
 
@@ -39,8 +39,8 @@ int nCr(int x, int y)
 	if(y>x || x<=0 || y<0)return 0;
 	int num=fact[x];
 	num*=invfact[y];
-	num%=MOD;
+	num%=mod;
 	num*=invfact[x-y];
-	num%=MOD;
+	num%=mod;
 	return num;
 }
