@@ -2,11 +2,11 @@ struct segtree
 {
   struct data
   {
-  	//Use required attributes
-  	int mn;
+	//Use required attributes
+	int mn;
   
-  	//Default Values
-  	data() : mn(1e9) {};
+	//Default Values
+	data() : mn(1e9) {};
   };
 	int N;
 	vector<data> st;
@@ -39,7 +39,7 @@ struct segtree
 		}
 		st[node].mn = lazy[node];
 		cLazy[node] = 0;
-    lazy[node] = 0;
+    		lazy[node] = 0;
 	}
 
 	void build(int node, int L, int R)
@@ -124,21 +124,21 @@ struct segtree
 
 	data query(int pos)
 	{
-		return pQuery(1, 1, N, pos);
+		return pQuery(1, 0, N-1, pos);
 	}
 
 	data query(int l, int r)
 	{
-		return Query(1, 1, N, l, r);
+		return Query(1, 0, N-1, l, r);
 	}
 
 	void update(int pos, int val)
 	{
-		pUpdate(1, 1, N, pos, val);
+		pUpdate(1, 0, N-1, pos, val);
 	}
 
 	void update(int l, int r, int val)
 	{
-		Update(1, 1, N, l, r, val);
+		Update(1, 0, N-1, l, r, val);
 	}
 };
