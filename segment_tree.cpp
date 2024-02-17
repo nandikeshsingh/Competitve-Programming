@@ -22,22 +22,24 @@ struct segtree
 	}
 
 	//Write reqd merge functions
+	//also consider what if data l or r has default values then what to return;
 	void merge(data &cur, data &l, data &r) 
 	{
 		cur.mn = min(l.mn, r.mn);
 	}
 	
-	//Handle lazy propagation appriopriately
+	//Handle lazy propagation appriopriately and carefully
+	//might need to do cLazy[node*2] = 1-cLazy[node] if updates cancels(like flip operation);
 	void propagate(int node, int L, int R)
 	{
-		if(L != R)
+		if(L != R)//push the changes 
 		{
 			cLazy[node*2] = 1;
 			cLazy[node*2 + 1] = 1;
 			lazy[node*2] = lazy[node];
 			lazy[node*2 + 1] = lazy[node]; 
 		}
-		st[node].mn = lazy[node];
+		st[node].mn = lazy[node];//then change the current node
 		cLazy[node] = 0;
     		lazy[node] = 0;
 	}
