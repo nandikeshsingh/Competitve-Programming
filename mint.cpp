@@ -1,4 +1,4 @@
-const int mod = (int) 998244353;
+const int mod = (int) 998244353;//change the value as needed
  
 struct mint {
 	int value;
