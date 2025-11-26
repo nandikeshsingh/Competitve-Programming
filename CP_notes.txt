@@ -1,0 +1,9 @@
+1.Convert long long to int to improve speed.
+2.For Dijkstra(n=1e5),Flyod warshall(n=500),Bellman Ford(n=5000) look
+at the constraint to identify the algorithm.
+3.DP on graph only work on DAG.
+4.When doing some query question it's better to save the query value in case we get the same query again (dp basically).
+5.Remember all the forms of dp.
+6.For implementing principle of inclusion and exclusion iterate over all the mask of the given set(depends on the question) and add 
+subtract according to the signs obtained(this also depends on the question).
+7.A number has an odd number of divisors only if it is a perfect square.
