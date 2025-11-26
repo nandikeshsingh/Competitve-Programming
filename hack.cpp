@@ -7,11 +7,19 @@ using namespace std;
 signed main()
 {
     speed;
-    int t;
-    cin>>t;
+    ofstream MyFile("hack.txt");
+    int t;t=100;
     while(t--)
     {
-
+        for(int i=0;i<100;i++)
+        {
+            if(i==0)
+            MyFile<<1000000<<" ";
+            else MyFile<<1<<" ";
+        }
+        MyFile<<endl;
     }
     return 0;
 }
+
+

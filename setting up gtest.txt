@@ -1,0 +1,61 @@
+Setting up G-Test for unit testing on Ubuntu.
+Skip to end of metadata
+Created by Nandikesh Singh, last modified on Jun 11, 2022Go to start of metadata
+What is Google Test ? 
+Google Test is a framework for writing C++ tests on a variety of platforms. Based on the xUnit architecture. Supports automatic test discovery, a rich set of assertions, user-defined assertions, death tests, fatal and non-fatal failures, value- and type-parameterized tests, various options for running the tests, and XML test report generation.
+
+Why Google Test ? 
+Below are some reasons to use google test : 
+
+Tests should be independent and repeatable. It’s a pain to debug a test that succeeds or fails as a result of other tests. google test isolates the tests by running each of them on a different object. When a test fails, google test allows you to run it in isolation for quick debugging.
+Tests should be well organized and reflect the structure of the tested code. google test groups related tests into test suites that can share data and subroutines. This common pattern is easy to recognize and makes tests easy to maintain. Such consistency is especially helpful when people switch projects and start to work on a new code base.
+Tests should be portable and reusable. Google has a lot of code that is platform-neutral; its tests should also be platform-neutral. google test works on different OSes, with different compilers, with or without exceptions, so google test tests can work with a variety of configurations.
+When tests fail, they should provide as much information about the problem as possible. google test doesn’t stop at the first test failure. Instead, it only stops the current test and continues with the next. You can also set up tests that report non-fatal failures after which the current test continues. Thus, you can detect and fix multiple bugs in a single run-edit-compile cycle.
+The testing framework should liberate test writers from housekeeping chores and let them focus on the test content. google test automatically keeps track of all tests defined, and doesn’t require the user to enumerate them in order to run them.
+Tests should be fast. With google test, you can reuse shared resources across tests and pay for the set-up/tear-down only once, without making tests depend on each other.
+
+
+Steps to install and setup google test on ubuntu.
+sudo apt-get install libgtest-dev  (this will install the gtest development package)
+sudo apt-get install cmake(this will install the cmake if you don't have it)
+cd /usr/src/gtest (Change the directory then execute the below 2 commands)
+sudo cmake CMakeLists.txt
+sudo make
+sudo cp *.a /usr/lib (This will copy libgtest.a and libgtest_main.a to your /usr/lib folder)
+
+Now close the current terminal and open a new terminal in your project folder and add three files in it by executing the following command in the terminal.
+touch a.cpp
+touch b_test.cpp
+touch CMakeLists.txt
+
+a.cpp will contain your code which you want to test.
+b_test.cpp will be the test file which will test the code written in a.cpp file.
+
+Now open the CMakeLists.txt and add the following code in it.
+
+cmake_minimum_required(VERSION 2.6)
+
+# Locate GTest
+
+find_package(GTest REQUIRED)
+
+include_directories(${GTEST_INCLUDE_DIRS})
+
+ # Link runTests with what we want to test and the GTest and pthread library
+
+add_executable(executeTests b_test.cpp)
+
+target_link_libraries(executeTests ${GTEST_LIBRARIES} pthread)
+
+The above code will compile our code into a file named "executeTests".
+
+Now again run the following commands in the terminal : 
+
+1. cmake CMakeLists.txt 
+2. make
+3. ./executeTests        
+
+Below are some important links to learn more about Google Test : 
+
+1.http://google.github.io/googletest/
+2.https://github.com/google/googletest

@@ -1,0 +1,54 @@
+1.SOA can be hard to debug and tune because every service is making many calls to other services so 
+  difficult to figure out which one is causing the issue.
+
+2.Among Design, Developement,Testing and Maintainance.Maintainance takes the most resourses in software engineering.
+
+3.Verification - Did you build the thing right ?
+  - Did you meet the specification ?
+  Validation - Did you build the right thing ?
+  - Is this what the customer wants ? 
+  -Is the specification correct ?
+-Hardware focus generally Verification
+-Software focus generally Validation
+
+4.Tseting : 
+
+ a.Unit Test : Single method does what was expected.
+ b.Module or functional test : across individual units
+ c.Integration test : interfaces between units have consistent assumptions, communicate
+                      correctly.
+ d.System or acceptance test: integrated program meets its specifications.
+ e. Coverage : % of code paths tested
+ f. Regression Testing: automatically rerun old tests so changes don't break what used to work.
+ g. Continuous Integration Testing: continuous regression testing vs later phases
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Met new scalability and real-time requirements by migrating the software stack to a new platform utilising a service-oriented architecture by architecting software, and designing algorithms/APIs using SOME-IP and DDS.
+ Reduced the software download time by 98% by introducing Diagnostics-over-IP (DoIP) which involved gathering stakeholder requirements, authoring software specifications, and running unit/integration/end-to-end tests.
