@@ -1,0 +1,2 @@
+it:ans)
+		cout<<it<<" ";
